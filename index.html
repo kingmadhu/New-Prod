@@ -1,0 +1,40 @@
+<html>
+      <body>
+        <h1>Bolt Clone</h1>
+        <input id="prompt" type="text" placeholder="Enter a prompt" />
+        <button id="generate-code">Generate Code</button>
+        <pre id="code"></pre>
+
+        <script>
+          const promptInput = document.getElementById('prompt');
+          const generateCodeButton = document.getElementById('generate-code');
+          const codeOutput = document.getElementById('code');
+
+          generateCodeButton.addEventListener('click', () => {
+            const prompt = promptInput.value;
+            const code = generateCode(prompt);
+            codeOutput.innerText = code;
+            writeCode(code);
+          });
+
+          function generateCode(prompt) {
+            // Implement a code generator that takes the user's prompt as input and generates the corresponding code
+            switch (prompt) {
+              case 'hello world':
+                return 'console.log("Hello, World!");';
+              case 'todo list':
+                return 'const todoList = [];';
+              default:
+                return '';
+            }
+          }
+
+          function writeCode(code) {
+            // Use the WebContainer's API to write the code to a file
+            const file = new File(['code.js'], 'code.js', { type: 'text/javascript' });
+            const fileWriter = new FileWriter(file);
+            fileWriter.write(code);
+          }
+        </script>
+      </body>
+    </html>
