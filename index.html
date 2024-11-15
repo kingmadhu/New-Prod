@@ -1,9 +1,23 @@
 <html>
+      <head>
+        <title>Bolt Clone</title>
+        <link rel="stylesheet" href="styles.css">
+      </head>
       <body>
-        <h1>Bolt Clone</h1>
-        <input id="prompt" type="text" placeholder="Enter a prompt" />
-        <button id="generate-code">Generate Code</button>
-        <pre id="code"></pre>
+        <div class="container">
+          <header>
+            <h1>Bolt Clone</h1>
+          </header>
+          <main>
+            <div class="prompt-container">
+              <input id="prompt" type="text" placeholder="Enter a prompt" class="prompt-input">
+              <button id="generate-code" class="generate-code-button">Generate Code</button>
+            </div>
+            <div class="code-container">
+              <pre id="code" class="code-output"></pre>
+            </div>
+          </main>
+        </div>
 
         <script>
           const promptInput = document.getElementById('prompt');
